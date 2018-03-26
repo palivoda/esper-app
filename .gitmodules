@@ -1,3 +1,6 @@
-[submodule "lib/esper"]
-	path = lib/esper
+;
+; (!) Use RECURSIVE flag during submodules update to get esper.git/lib content.
+;
+[submodule "lib/esper.git"]
+	path = lib/esper.git
 	url = https://github.com/palivoda/esper.git

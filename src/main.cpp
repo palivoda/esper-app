@@ -1,23 +1,17 @@
-#define USE_WEMOS_D1_MINI_BOARD     // Board pinout selection as defined in Setting.hpp
-#define ESPER_DEBUG                 // Comment this out to disable debug prints
-//#define ESPER_PRINT Serial        // Debug output can be redefined
+#ifndef ESPER_LIB_BULD
 
-#include <Esper.h>
+#define USE_WEMOS_D1_MINI_BOARD     // Uncomment the board you are using
+#define ESPER_DEBUG                 // Comment this out to disable debug prints
+#define ESPER_BEAT_S 3              //Sensor pull time
+#include "Esper.hpp"
 
 void setup() {
-
-  ESPER_DEBUG_SETUP(74880); //ESP8266 baud rate
-
-  //Init EEPROM
-  Esper.begin(2); //2 seconds for tic tac
-
+  ESPER_DEBUG_SETUP(74880);
+  Esper.begin();
 }
 
 void loop() {
-
-  //Important for WiFi and MQTT connection setup
   Esper.run();
-
 }
 
 void connected() {
@@ -27,6 +21,7 @@ void connected() {
 void disconnecting() {
   E_DEBUG("Disconnecting...");
 }
+
 
 void tictac()
 {
