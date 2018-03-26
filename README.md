@@ -1,5 +1,11 @@
 This is application template for [Esper].
 
+# Development environment
+* Source code projects are setup in [Platformio for Atom] community edition. All steps below assume this environment folders structure.
+
+## Creating application with Esper:
+* Git clone of the esper-app
+* Open [platformio.ini] file and setup your board configuration.
 * Select the board and include <Esper.hpp> file of the library:
 ```sh
 #define USE_WEMOS_D1_MINI_BOARD     //select board
@@ -11,11 +17,11 @@ This is application template for [Esper].
 ESPER_DEBUG_SETUP(74880);           //default ESP baud rate
 Esper.begin();                      //init EEPROM
 ```
-* During loop you need to call only
+* During the loop you need to call only
 ```sh
 Esper.run();
 ```
-ESPER provides you 3 new callbacks that you can fill in with operation code:
+ESPER provides you 3 new callbacks that are already defined in the application template:
 
 | Function | Description |
 | :---: | --- |
@@ -23,12 +29,6 @@ ESPER provides you 3 new callbacks that you can fill in with operation code:
 | disconnect() | Triggered if Wi-Fi, MQTT connection lost or ESPER OTA is initiated and device is going to reboot. |
 | tictac() | Timer that is active only when device is online and ready. Intended to sensor readings. |
 
-# Development environment
-* Source code projects are setup in [Platformio for Atom] community edition. All steps below assume this environment folders structure.
-
-## Creating application with Esper:
-* Git clone of the esper-app
-* Open [platformio.ini] file and setup your board configuration.
 * Connect your ESP chip to USB port and Run build. For ESP-01 it takes 10 seconds to start AP.
 * Connect to 'ESPER device' WiFi AP and open URL "esper.iot" to setup WiFi and MQTT settings.
 * After save device will reboot and send esper/init MQTT message.
