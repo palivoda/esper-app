@@ -4,3 +4,6 @@
 [submodule "lib/esper.git"]
 	path = lib/esper.git
 	url = https://github.com/palivoda/esper.git
+[submodule "lib/pubsubclient.git"]
+	path = lib/pubsubclient.git
+	url = https://github.com/knolleary/pubsubclient.git

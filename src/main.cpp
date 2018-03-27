@@ -1,5 +1,3 @@
-#ifndef ESPER_LIB_BULD
-
 #define USE_WEMOS_D1_MINI_BOARD     // Uncomment the board you are using
 #define ESPER_DEBUG                 // Comment this out to disable debug prints
 #define ESPER_BEAT_S 3              //Sensor pull time
@@ -26,11 +24,11 @@ void disconnecting() {
 void tictac()
 {
 
-    String message = "Lets go party! There are " + millis() + " people!";
+    String message = String("Lets go party! There are ") + millis() + " people!";
 
     E_DEBUG("Sending %s ", message.c_str());
 
-    mqtt.publish("hello/world", message);
+    mqtt.publish("hello/world", message.c_str());
 
     E_DEBUG_ASSERT(millis() > 1000);
 
