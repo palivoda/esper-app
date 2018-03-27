@@ -5,21 +5,22 @@ This is application template for [Esper].
 
 ## Creating application with Esper:
 * Git clone of the esper-app
+* Git modules update (use recursive update).
 * Open [platformio.ini] file and setup your board configuration.
-* Select the board and include <Esper.hpp> file of the library:
-```sh
-#define USE_WEMOS_D1_MINI_BOARD     //select board
-#define ESPER_DEBUG                 //enable Debug
-#include "Esper.hpp"                //main H file
+* In main.cpp select the board pinout and include <Esper.hpp> file of the library:
+```cpp
+#define USE_WEMOS_D1_MINI_BOARD     //Select board pinout
+#define ESPER_DEBUG                 //Enable debug output
+#include "Esper.hpp"                //Esper library file
 ```
 * Then during setup call:
-```sh
-ESPER_DEBUG_SETUP(74880);           //default ESP baud rate
-Esper.begin();                      //init EEPROM
+```cpp
+ESPER_DEBUG_SETUP(74880);           //Default ESP baud rate
+Esper.begin();                      //Init EEPROM and other stuff
 ```
 * During the loop you need to call only
-```sh
-Esper.run();
+```cpp
+Esper.run();                        //Loop
 ```
 ESPER provides you 3 new callbacks that are already defined in the application template:
 
